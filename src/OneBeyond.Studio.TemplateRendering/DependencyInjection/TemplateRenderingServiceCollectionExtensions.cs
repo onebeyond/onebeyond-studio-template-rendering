@@ -19,6 +19,7 @@ public static class TemplateRenderingServiceCollectionExtensions
     {
         ArgumentNullException.ThrowIfNull(services);
         services.TryAddSingleton<ITemplateRenderer, HandlebarsTemplateRenderer>();
+        services.TryAddSingleton<IHandlebarsTemplateRenderer, HandlebarsTemplateRenderer>();
         return services;
     }
 }
