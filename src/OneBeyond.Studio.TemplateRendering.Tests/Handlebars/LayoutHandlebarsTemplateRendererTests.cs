@@ -7,7 +7,7 @@ using Xunit;
 namespace OneBeyond.Studio.TemplateRendering.Tests.Handlebars;
 
 [Collection(HandlebarsTemplateRendererCollection.Name)]
-public class LayoutHandlebarsTemplateRendererTests : IClassFixture<LayoutTemplateFixture>
+public sealed class LayoutHandlebarsTemplateRendererTests : IClassFixture<LayoutTemplateFixture>
 {
     private readonly HandlebarsTemplateRenderer _renderer;
 

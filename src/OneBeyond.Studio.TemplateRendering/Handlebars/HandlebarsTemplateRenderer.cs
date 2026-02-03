@@ -11,7 +11,7 @@ namespace OneBeyond.Studio.TemplateRendering.Handlebars;
 /// Template registration is thread-safe and mutually exclusive with rendering operations,
 /// while multiple renderings can occur concurrently when no registration is in progress.
 /// </remarks>
-public class HandlebarsTemplateRenderer : IHandlebarsTemplateRenderer
+internal sealed class HandlebarsTemplateRenderer : IHandlebarsTemplateRenderer
 {
     private static readonly ReaderWriterLockSlim _lock = new();
 

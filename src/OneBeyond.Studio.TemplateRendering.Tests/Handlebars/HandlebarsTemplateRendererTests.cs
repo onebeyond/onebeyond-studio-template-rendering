@@ -8,7 +8,7 @@ using Xunit;
 namespace OneBeyond.Studio.TemplateRendering.Tests.Handlebars;
 
 [Collection(HandlebarsTemplateRendererCollection.Name)]
-public class HandlebarsTemplateRendererTests
+public sealed class HandlebarsTemplateRendererTests
 {
     private readonly HandlebarsTemplateRenderer _renderer = new HandlebarsTemplateRenderer();
 

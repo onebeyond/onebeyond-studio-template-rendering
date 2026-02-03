@@ -28,7 +28,7 @@ public sealed class LayoutTemplateFixture : IDisposable
         </html>
         """;
 
-    public HandlebarsTemplateRenderer Renderer { get; } = new HandlebarsTemplateRenderer();
+    internal HandlebarsTemplateRenderer Renderer { get; } = new HandlebarsTemplateRenderer();
 
     public LayoutTemplateFixture()
     {
