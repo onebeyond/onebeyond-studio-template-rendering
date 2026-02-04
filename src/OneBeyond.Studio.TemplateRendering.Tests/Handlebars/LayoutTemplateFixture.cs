@@ -6,17 +6,17 @@ using Xunit;
 
 namespace OneBeyond.Studio.TemplateRendering.Tests.Handlebars;
 
-[CollectionDefinition(Name)]
+[CollectionDefinition(NAME)]
 public static class HandlebarsTemplateRendererCollection
 {
-    public const string Name = "Handlebars Exclusive";
+    public const string NAME = "Handlebars Exclusive";
 }
 
 public sealed class LayoutTemplateFixture : IDisposable
 {
-    public const string LayoutName = "Layout";
+    public const string LAYOUT_NAME = "Layout";
 
-    private const string LayoutTemplate = """
+    private const string LAYOUT_TEMPLATE = """
         <html>
         <body>
         {{{> @partial-block }}}
@@ -32,13 +32,13 @@ public sealed class LayoutTemplateFixture : IDisposable
 
     public LayoutTemplateFixture()
     {
-        Renderer.RegisterTemplate(LayoutName, LayoutTemplate);
+        Renderer.RegisterTemplate(LAYOUT_NAME, LAYOUT_TEMPLATE);
     }
 
     public void Dispose()
     {
         HandlebarsDotNet.Handlebars.RegisterTemplate(
-            LayoutName,
+            LAYOUT_NAME,
             (HandlebarsTemplate<TextWriter, object, object>)null!);
     }
 }

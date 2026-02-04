@@ -13,20 +13,20 @@ namespace OneBeyond.Studio.TemplateRendering.Handlebars;
 /// </remarks>
 internal sealed class HandlebarsTemplateRenderer : IHandlebarsTemplateRenderer
 {
-    private static readonly ReaderWriterLockSlim _lock = new();
+    private static readonly ReaderWriterLockSlim Lock = new();
 
     /// <inheritdoc/>
     /// <remarks>Registration is performed in a thread-safe manner.</remarks>
     public void RegisterTemplate(string name, string template)
     {
-        _lock.EnterWriteLock();
+        Lock.EnterWriteLock();
         try
         {
             HandlebarsDotNet.Handlebars.RegisterTemplate(name, template);
         }
         finally
         {
-            _lock.ExitWriteLock();
+            Lock.ExitWriteLock();
         }
     }
 
@@ -35,7 +35,7 @@ internal sealed class HandlebarsTemplateRenderer : IHandlebarsTemplateRenderer
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(template);
 
-        _lock.EnterReadLock();
+        Lock.EnterReadLock();
         try
         {
             var compiledTemplate = HandlebarsDotNet.Handlebars.Compile(template);
@@ -43,7 +43,7 @@ internal sealed class HandlebarsTemplateRenderer : IHandlebarsTemplateRenderer
         }
         finally
         {
-            _lock.ExitReadLock();
+            Lock.ExitReadLock();
         }
     }
 }

@@ -6,7 +6,7 @@ using Xunit;
 
 namespace OneBeyond.Studio.TemplateRendering.Tests.Handlebars;
 
-[Collection(HandlebarsTemplateRendererCollection.Name)]
+[Collection(HandlebarsTemplateRendererCollection.NAME)]
 public sealed class LayoutHandlebarsTemplateRendererTests : IClassFixture<LayoutTemplateFixture>
 {
     private readonly HandlebarsTemplateRenderer _renderer;
@@ -44,9 +44,9 @@ public sealed class LayoutHandlebarsTemplateRendererTests : IClassFixture<Layout
             {
                 "Basic",
                 $$$"""
-                {{#> {{{LayoutTemplateFixture.LayoutName}}}}}
+                {{#> {{{LayoutTemplateFixture.LAYOUT_NAME}}}}}
                 Basic template with one {{variable}}
-                {{/{{{LayoutTemplateFixture.LayoutName}}}}}
+                {{/{{{LayoutTemplateFixture.LAYOUT_NAME}}}}}
                 """,
                 new
                 {
@@ -57,12 +57,12 @@ public sealed class LayoutHandlebarsTemplateRendererTests : IClassFixture<Layout
             {
                 "Complex",
                 $$$$"""
-                {{#> {{{{LayoutTemplateFixture.LayoutName}}}}}}
+                {{#> {{{{LayoutTemplateFixture.LAYOUT_NAME}}}}}}
                 <p>Hello {{userName}},</p>
                 <p>You have been sent this email as an invitation to access Alexis' Test. In order to access the system you will first need to set a password. Please click <a href="{{callbackUrl}}">here</a> to set your password.</p>
                 <p>If you're having trouble clicking the link, copy and paste the URL below into your web browser: {{callbackUrl}}.</p>
                 <p>To log in to your account use the following user name: {{userName}}.</p>
-                {{/{{{{LayoutTemplateFixture.LayoutName}}}}}}
+                {{/{{{{LayoutTemplateFixture.LAYOUT_NAME}}}}}}
                 """,
                 new
                 {
