@@ -10,10 +10,8 @@
         $(DotNetVersion).$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)
       </PackageVersion>
 
-      <!-- NuGet / informational -->
       <Version>$(PackageVersion)</Version>
 
-      <!-- 🔑 What Visual Studio shows -->
       <AssemblyVersion>$(DotNetVersion).$(MinVerMajor).0.0.0</AssemblyVersion>
       <FileVersion>$(DotNetVersion).$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).0</FileVersion>
     </PropertyGroup>
